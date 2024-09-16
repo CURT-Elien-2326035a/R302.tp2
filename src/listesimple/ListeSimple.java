@@ -140,8 +140,8 @@ public class ListeSimple {
         listeSimple.reverse();
         listeSimple.read();
         
-        System.out.println("on remplace les cases:");
-        listeSimple.swapNodes(2,4);
+        //System.out.println("on remplace les cases:");
+        //listeSimple.swapNodes(2,4);
     
     }
 }
