@@ -1,4 +1,4 @@
-package listesimple;
+package listes;
 
 public class Node {
 	private int element;

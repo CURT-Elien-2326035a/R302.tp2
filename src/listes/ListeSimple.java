@@ -1,4 +1,4 @@
-package listesimple;
+package listes;
 
 public class ListeSimple {
     private Node head;
@@ -107,6 +107,50 @@ public class ListeSimple {
         head = previous; 
     }
     
+        public void swapNodes(int x_pos, int y_pos) {
+            if (x_pos == y_pos) {
+                return; 
+            }
+    
+            Node prevX = null, currX = head;
+            Node prevY = null, currY = head;
+            int pos = 0;
+    
+            while (currX != null && pos != x_pos) {
+                prevX = currX;
+                currX = currX.getNext();
+                pos++;
+            }
+    
+            pos = 0;
+    
+            while (currY != null && pos != y_pos) {
+                prevY = currY;
+                currY = currY.getNext();
+                pos++;
+            }
+    
+            if (currX == null || currY == null) {
+                return;
+            }
+    
+            if (prevX != null) {
+                prevX.setNext(currY);
+            } else {
+                head = currY;  
+            }
+    
+            if (prevY != null) {
+                prevY.setNext(currX);
+            } else {
+                head = currX;  
+            }
+    
+            Node temp = currX.getNext();
+            currX.setNext(currY.getNext());
+            currY.setNext(temp);
+        }
+    
     public static void main(String[] args) {
         ListeSimple listeSimple = new ListeSimple();
         listeSimple.createNode(10);
@@ -140,8 +184,9 @@ public class ListeSimple {
         listeSimple.reverse();
         listeSimple.read();
         
-        //System.out.println("on remplace les cases:");
-        //listeSimple.swapNodes(2,4);
+        System.out.println("on remplace les cases:");
+        listeSimple.swapNodes(2,4);
+        listeSimple.read();
     
     }
 }
